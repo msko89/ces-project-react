@@ -1,0 +1,139 @@
+.mainWrap {
+  position: relative;
+  height: 100%;
+  background: url('../../assets/images/bg_main.png') repeat-x 0 0;
+  background-size: 100% 100%;
+}
+.mainWrap header {
+  padding: 25px;
+  font-size: 1.25em;
+  color: #fff;
+  line-height: 110%;
+}
+.mainWrap header h2 {
+  text-decoration: underline;
+}
+.mainWrap .contentsWrap {
+  position: absolute;
+  left: 0;
+  top: 12%;
+  right: 0;
+  bottom: 16%;
+  background: url('../../assets/images/bg_main_house.png') no-repeat left center;
+  background-size: 249px auto;
+}
+.mainWrap .contentsWrap a > button {
+  position: absolute;
+  height: 73px;
+  padding-left: 70px;
+  font-size: 0.9375em;
+  color: #fff;
+  text-align: left;
+  line-height: 120%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 62px auto;
+}
+.mainWrap .contentsWrap a > button h3 {
+  font-weight: normal;
+}
+.mainWrap .contentsWrap .btn_detail {
+  left: 49px;
+  top: 50%;
+  width: 106px;
+  height: 146px;
+  margin-top: -65px;
+  padding: 0;
+  text-indent: -999em;
+  background: url('../../assets/images/btn_house.png') no-repeat 0 0;
+  background-size: auto 100%;
+}
+.mainWrap .iaq {
+  left: 28%;
+  top: 10%;
+  background-image: url('../../assets/images/ico_prd_iaq.png');
+}
+.mainWrap .water {
+  left: 50%;
+  top: 30%;
+  background-image: url('../../assets/images/ico_prd_water.png');
+}
+.mainWrap .bidet {
+  left: 50%;
+  bottom: 30%;
+  background-image: url('../../assets/images/ico_prd_bidet.png');
+}
+.mainWrap .matrix {
+  left: 28%;
+  bottom: 10%;
+  background-image: url('../../assets/images/ico_prd_mattress.png');
+}
+.mainWrap footer {
+  position: absolute;
+  left: 25px;
+  right: 25px;
+  bottom: 0;
+  border-top: 1px solid #60ced7;
+  overflow: hidden;
+}
+.mainWrap footer button {
+  position: relative;
+  float: left;
+  width: 25%;
+  height: 102px;
+  text-indent: -999em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50px auto;
+}
+.mainWrap footer button:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1px;
+  height: 27px;
+  margin-top: -13.5px;
+  background: #0fa6b1;
+}
+.mainWrap footer button:first-child:before {
+  display: none;
+}
+.mainWrap footer button:after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 20%;
+  width: 4px;
+  height: 4px;
+  margin: -2px 0 0 -2px;
+  background: #289da4;
+  border-radius: 2px;
+}
+.mainWrap footer button.on:after {
+  background: #fff;
+}
+.mainWrap footer .fa {
+  background-image: url('../../assets/images/btn_man_off.png');
+}
+.mainWrap footer .fa.on {
+  background-image: url('../../assets/images/btn_man_on.png');
+}
+.mainWrap footer .mom {
+  background-image: url('../../assets/images/btn_woman_off.png');
+}
+.mainWrap footer .mom.on {
+  background-image: url('../../assets/images/btn_woman_on.png');
+}
+.mainWrap footer .grandma {
+  background-image: url('../../assets/images/btn_grandma_off.png');
+}
+.mainWrap footer .grandma.on {
+  background-image: url('../../assets/images/btn_grandma_on.png');
+}
+.mainWrap footer .baby {
+  background-image: url('../../assets/images/btn_baby_off.png');
+}
+.mainWrap footer .baby.on {
+  background-image: url('../../assets/images/btn_baby_on.png');
+}

@@ -1,38 +1,722 @@
-.App {
+@charset "UTF-8";
+
+/***************************************************************************************************
+	Reset
+***************************************************************************************************/
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+body {
+  min-height: 100%;
+  font: normal 16px/130% arita, 'Samsung Gothic', 'Malgun Gothic', '맑은 고딕',
+    dotum, '돋움', sans-serif;
+  color: #040404;
+  -webkit-text-size-adjust: none;
+}
+img {
+  border: none;
+}
+p,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+em,
+figure {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'arita';
+  font-size: 1em;
+}
+li {
+  list-style: none;
+}
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+legend {
+  position: absolute;
+  left: -1000px;
+  top: -1000px;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+}
+a {
+  margin: 0;
+  color: #040404;
+  text-decoration: none;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 1em;
+}
+table caption {
+  display: none;
+  position: absolute;
+  left: -999px;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+}
+table td,
+table th {
+  padding: 0;
+}
+button {
+  margin: 0;
+  padding: 0;
+  font: normal 1em arita, 'Samsung Gothic', 'Malgun Gothic', '맑은 고딕', dotum,
+    '돋움', sans-serif;
+  color: #040404;
+  vertical-align: middle;
+  background: 0;
+  border: none;
+  overflow: visible;
+  cursor: pointer;
+}
+button:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+}
+input[type='text'],
+input[type='password'],
+input[type='number'],
+input[type='rang'],
+input[type='email'],
+input[type='url'],
+input[type='date'],
+input[type='datetime'],
+input[type='month'],
+input[type='tel'],
+input[type='search'],
+input[type='color'] {
+  display: inline-block;
+  height: 40px;
+  margin: 0;
+  padding: 0 10px 0 15px;
+  font: normal 1em arita, 'Samsung Gothic', 'Malgun Gothic', '맑은 고딕', dotum,
+    '돋움', sans-serif;
+  color: #000;
+  vertical-align: middle;
+  background: #fff;
+  border: 1px solid #dadada;
+  border-radius: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -webkit-appearance: none;
+}
+input[type='checkbox'],
+input[type='radio'] {
+  margin: 0;
+  vertical-align: middle;
+  font-size: 1em;
+  border: none;
+  -webkit-appearance: none;
+}
+input[type='radio'] + label,
+input[type='checkbox'] + label {
+  margin-right: 0.6em;
+  vertical-align: middle;
+}
+label:last-child {
+  margin-right: 0 !important;
+}
+input[type='file'] {
+  border: 1px solid #c9caca;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type='number'] {
+  text-align: right;
+}
+input[type='number'].normal {
+  text-align: left;
+}
+input[type='text']:only-child,
+input[type='password']:only-child,
+input[type='search']:only-child,
+input[type='number']:only-child,
+input[type='email']:only-child,
+input[type='tel']:only-child {
+  max-width: 100%;
+  width: 100%;
+}
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #040404;
+}
+input:focus {
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0.2);
+}
+input[readonly='readonly'] {
+  color: #3e3a39;
+  text-overflow: ellipsis;
+  background-color: #f3f3f3;
+  white-space: nowrap;
+  overflow: hidden;
+}
+select.st02 {
+  border-color: #929292;
+}
+select:only-child {
+  display: block;
+  width: 100%;
+}
+select.s {
+  height: 25px;
+  font-size: 0.75em;
+}
+label,
+label input + span {
+  vertical-align: middle;
+}
+textarea {
+  width: 100%;
+  padding: 5px 8px;
+  font: normal 1em/150% arita, 'Samsung Gothic', 'Malgun Gothic', '맑은 고딕',
+    dotum, '돋움', sans-serif;
+  color: #040404;
+  border: 1px solid #dadada;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+textarea:only-child {
+  vertical-align: top;
+}
+hr {
+  margin: 0.5em 0.3em 1em;
+  background: none;
+  border: none;
+  border-bottom: 2px dashed #ccc;
+}
+article,
+aside,
+footer,
+header,
+hgroup,
+nav,
+section,
+figure {
+  display: block;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+div {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+em,
+address {
+  font-style: normal;
+}
+sub {
+  font-weight: normal;
+  vertical-align: middle;
+}
+img {
+  max-width: 100%;
+  max-height: 100%;
+}
+pre {
+  margin: 0;
+  padding: 0;
+  font: normal 1em arita, 'Samsung Gothic', 'Malgun Gothic', '맑은 고딕', dotum,
+    '돋움', sans-serif;
+  color: #040404;
+  line-height: 130%;
+}
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/******** common class ********/
+.f {
+  width: 100%;
+}
+.mid {
+  vertical-align: middle;
+}
+.vtop {
+  vertical-align: top;
+}
+.l_btn {
+  margin-top: 15px;
+}
+.r_btn {
+  padding: 5px 0;
+  text-align: right;
+  line-height: 36px;
+  background: #e6e6e6;
+}
+.c_btn {
+  margin: 20px 0;
+  padding: 0 30px;
+  text-align: center;
+  overflow: hidden;
+}
+.c_btn:first-child {
+  margin-top: 0;
+}
+.c_btn button:only-child {
+  width: 100%;
+}
+.item2 button {
+  width: 48%;
+}
+.alignr {
+  text-align: right !important;
+}
+.cen {
+  text-align: center !important;
+}
+.hide {
+  position: absolute !important;
+  left: -10000px;
+  top: -10000px;
+  visibility: hidden;
+}
+.hide2 {
+  display: none !important;
+}
+.clear:after {
+  display: block;
+  clear: both;
+  content: ' ';
+  width: 0;
+  height: 0;
+  line-height: 0;
+  font-size: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+.layer_back {
+  position: absolute;
+  left: 0;
+  top: -200px;
+  bottom: 0;
+  width: 100%;
+  background: #000;
+  opacity: 0.6;
+}
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.formWrap {
+  display: inline-block;
+  margin: 2px 5px 2px 0;
+  white-space: nowrap;
+}
+.formWrap:last-child {
+  margin-right: 0;
+}
+.rbtnWrap {
+  position: relative;
+  padding-right: 36px;
+}
+.rcen_btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -16px;
+}
+/******************************/
+
+/*** popup ***/
+.popWrap {
+  position: relative;
+  height: 100%;
+  padding-bottom: 120px;
+  background: #fff;
+}
+.popWrap header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 48px;
+  padding-left: 40px;
+  z-index: 100;
+}
+.popWrap h1 {
+  height: 100%;
+  font-size: 1.0625em;
+  line-height: 48px;
+}
+.popWrap header .btn_close {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  text-indent: -999em;
+  background: url('./assets/images/btn_close.png') no-repeat center center;
+  background-size: auto 25px;
+}
+.popWrap header.hide {
+  left: -999em;
+  top: -999em;
+}
+.popWrap .contentsWrap {
+  height: 100%;
+  overflow: auto;
+}
+.totviewbox {
+  position: relative;
+  padding: 15px 20px;
+  border-top: 1px solid #e1e1e1;
+}
+.totviewbox:first-child {
+  border-top: none;
+}
+.totviewbox .tit {
+  margin-bottom: 30px;
+  padding: 0 0 2px 20px;
+  font-weight: normal;
+  font-size: 0.9375em;
+  color: #008fd1;
+  letter-spacing: -0.05em;
+  border-bottom: 1px solid #e1e1e1;
+}
+.totviewbox .legends {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+.legends {
+  position: absolute;
+  right: 15px;
+  top: 2px;
+  font-size: 0.5em;
+  color: #a2a2a2;
+  text-align: left;
+}
+.legends li {
+  display: inline-block;
+  padding: 1px 0;
+  color: #a2a2a2 !important;
+}
+.legends li:before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin-right: 5px;
+  vertical-align: middle;
+  background: #2baaf2;
+  border-radius: 3px;
+  margin-bottom: 4px;
+}
+.legends li.normal:before {
+  background: #35d1d3;
+}
+.legends li.bad:before {
+  background: #f6a428;
+}
+.legends li.verybad:before {
+  background: #fa6c40;
+}
+.homeWrap .tit {
+  background: url('./assets/images/ico_house.png') no-repeat left center;
+  background-size: auto 25px;
+}
+.myWrap .tit {
+  background: url('./assets/images/ico_man.png') no-repeat left center;
+  background-size: auto 25px;
+}
+
+.chartbox {
+  overflow: hidden;
+}
+.chartbox > div {
+  position: relative;
+  float: left;
+  width: 50%;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.chartbox > div > dl {
+  font-size: 0.6875em;
+  color: #454545;
+  text-align: center;
+  line-height: 140%;
+}
+.chartbox > div > dl dd {
+  color: #00b9d7;
+}
+.chartbox .box {
+  position: relative;
+}
+.out {
+  position: relative;
+  width: 104px;
+  height: 104px;
+  margin: 0 auto;
+  background: rgba(37, 208, 210, 0.9);
+  border: 1px solid #119092;
+  border-radius: 52px;
+}
+.out:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url('./assets/images/bg_shadow02.png') no-repeat center center;
+  background-size: 100% auto;
+}
+.in {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 68px;
+  height: 68px;
+  margin: -34px 0 0 -34px;
+  background: #25d0d2;
+  border: 1px solid #119092;
+  border-radius: 34px;
+}
+.out dl {
+  text-align: center;
+}
+.out dt {
+  height: 18px;
+  font-weight: bold;
+  font-size: 0.5em;
+  color: #fff;
+  line-height: 18px;
+}
+.nowstat span {
+  display: none;
+}
+.nowstat span.normal {
+  display: block;
+}
+.good .nowstat span.normal {
+  display: none;
+}
+.good .nowstat span.good {
+  display: block;
+}
+.bad .nowstat span.normal {
+  display: none;
+}
+.bad .nowstat span.bad {
+  display: block;
+}
+.verybad .nowstat span.normal {
+  display: none;
+}
+.verybad .nowstat span.verybad {
+  display: block;
+}
+.in dl {
+  padding-top: 4px;
+  color: #fff;
+  text-align: center;
+}
+.in dt {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 0.5em;
+}
+.in p {
+  line-height: 110%;
+}
+.in p > span {
+  display: inline-block;
+  min-width: 1em;
+  font-size: 1.0625em;
+  text-align: right;
+  line-height: 105%;
+  vertical-align: top;
+}
+.in p > sub {
+  position: absolute;
+  margin: -2px 0 0 1px;
+  font-size: 0.4em;
+  vertical-align: top;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media screen and (max-width: 320px) {
+  .totsatusWrap {
+    margin-top: 10px;
+  }
+  .box .legends {
+    right: -5px;
+  }
+  .legends em {
+    margin-right: 3px;
   }
 }
+.box .good {
+  background: #3fbcec;
+}
+.box .bad {
+  background: #ffac20;
+}
+.box .verybad {
+  background: #fd6370;
+}
+.box .out.good {
+  background: rgba(63, 188, 236, 0.9);
+}
+.box .out.bad {
+  background: rgba(255, 172, 32, 0.9);
+}
+.box .out.verybad {
+  background: rgba(253, 99, 112, 0.9);
+}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.chartbox .chart dl {
+  position: absolute;
+  left: 50%;
+  top: 40px;
+  width: 210px;
+  margin-left: -105px;
+  text-align: center;
+}
+.chartbox .chart dd {
+  font-size: 2.5em;
+  color: #202020;
+  line-height: 137%;
+  padding-right: 2px;
+  margin-top: -21px;
+}
+
+.analysis {
+  margin-top: 15px;
+  text-align: center;
+}
+.analysis dl,
+.analysis dt,
+.analysis dd {
+  display: inline-block;
+}
+.analysis dl {
+  font-size: 0.8125em;
+}
+.analysis dt {
+  color: #5a5a5a;
+}
+.analysis dd {
+  color: #25d0d2;
+}
+.analysis dl:first-child {
+  display: block;
+  font-size: 1.25em;
+}
+.analysis dl:first-child dt {
+  color: #4e4e4e;
+}
+.analysis dl:last-child:before {
+  content: '|';
+  margin: 0 10px 0 10px;
+  color: #acacac;
+}
+.good {
+  color: #3fbcec;
+}
+.normal {
+  color: #25d0d2;
+}
+.bad {
+  color: #ffac20;
+}
+.verybad {
+  color: #fd6370;
+}
+
+.actionguide {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-box;
   display: flex;
-  flex-direction: column;
+  -webkit-box-align: center;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 120px;
+  padding: 0 20px 0 115px;
+  color: #fff;
+  background: #00b9d7;
 }
-
-.App-link {
-  color: #61dafb;
+.actionguide .icon {
+  position: absolute;
+  left: 34px;
+  top: 50%;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  padding-top: 47px;
+  font-size: 0.625em;
+  text-align: center;
+  background: url('./assets/images/ico_guide_sleep.png') no-repeat center top;
+  background-size: 40px auto;
+  border: 1px solid #33c7df;
+  border-radius: 35px;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.actionguide .icon.water {
+  background-image: url('./assets/images/ico_guide_water.png');
+}
+.actionguide dl {
+  width: 100%;
+}
+.actionguide dt {
+  display: inline-block;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #00aac5;
+  background: #fff;
+  border-radius: 1em;
+}
+.actionguide dd {
+  margin-top: 5px;
+  padding-left: 2px;
+  font-size: 0.8125em;
+  line-height: 120%;
+}
+.btn_sms {
+  position: absolute;
+  right: 5px;
+  top: -30px;
+  width: 62px;
+  height: 62px;
+  text-indent: -999em;
+  background: url('./assets/images/btn_sms.png') no-repeat center top;
+  background-size: 100% auto;
 }
