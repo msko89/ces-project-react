@@ -4,7 +4,7 @@ import './Combine.css';
 
 export default function Combine() {
   return (
-    <div className="mainWrap">
+    <div className="combine_mainWrap">
       <header>
         <h2>
           <span>MS Ko</span>

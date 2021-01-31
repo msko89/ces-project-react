@@ -1,0 +1,896 @@
+.bidet_mainWrap {
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 50px;
+}
+.bidet_mainWrap header {
+  position: relative;
+  padding: 24px 0 0 27px;
+}
+.bidet_mainWrap .today {
+  font-size: 1.0625em;
+  color: #202020;
+}
+.btn_tip {
+  position: absolute;
+  top: 19px;
+  right: 19px;
+  width: 35px;
+  height: 35px;
+  text-indent: -999em;
+  background: url('./images/bidet_index.png') no-repeat center center;
+  background-size: auto 25px;
+}
+.tip {
+  position: absolute;
+  left: -100%;
+  top: -100px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  min-width: 88%;
+  height: 0;
+  min-height: 0;
+  padding: 0 10px;
+  font-size: 0;
+  color: #fff;
+  text-align: center;
+  background: #82dfe4;
+  border-radius: 5px;
+  overflow: hidden;
+  opacity: 0;
+  z-index: 500;
+  transition: all 0.5s linear;
+  -webkit-transition: all 0.5s linear;
+}
+.tip:before {
+  content: '';
+  position: absolute;
+  right: 16px;
+  top: -5px;
+  width: 8px;
+  height: 5px;
+  background: url('./images/bg_tip_arrow.png') no-repeat center bottom;
+  background-size: auto 100%;
+}
+.tip p {
+  width: 100%;
+  text-align: center;
+}
+.tip .btn_close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 35px;
+  height: 30px;
+  text-align: left;
+  text-indent: -999em;
+  background: url('./images/btn_close.png') no-repeat center center;
+  background-size: auto 25px;
+}
+.tip.open {
+  left: 16px;
+  top: 64px;
+  right: 16px;
+  height: auto;
+  min-height: 60px;
+  padding: 15px 10px;
+  font-size: 0.8125em;
+  overflow: inherit;
+  opacity: 1;
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+.total {
+  margin-bottom: 10px;
+}
+.graphWrap.total {
+  position: relative;
+  width: 100%;
+  height: 210px;
+  margin-top: 30px;
+  text-align: center;
+}
+.graphWrap.total .bidet_legends {
+  position: absolute;
+  right: 10px;
+  top: 2px;
+  font-size: 0.6em;
+  color: #a2a2a2;
+  text-align: left;
+}
+.graphWrap.total .bidet_legends li {
+  position: relative;
+  padding-left: 9px;
+}
+.graphWrap.total .bidet_legends li:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 6px;
+  height: 6px;
+  margin-top: -4px;
+  background: #2baaf2;
+  border-radius: 3px;
+}
+.graphWrap.total .bidet_legends li.normal:before {
+  background: #35d1d3;
+}
+.graphWrap.total .bidet_legends li.bad:before {
+  background: #f6a428;
+}
+.graphWrap.total .bidet_legends li.verybad:before {
+  background: #fa6c40;
+}
+.graphWrap.total dl {
+  position: absolute;
+  left: 50%;
+  top: 52px;
+  width: 210px;
+  margin-left: -105px;
+  text-align: center;
+}
+.graphWrap.total dt {
+  font-size: 0.875em;
+  color: #454545;
+}
+.graphWrap.total dd {
+  font-size: 5.625em;
+  color: #202020;
+  line-height: 102%;
+}
+.text_info01 {
+  margin-top: 20px;
+  padding: 0 20px;
+  text-align: left;
+  word-wrap: normal;
+  word-break: normal;
+}
+.text_info01 dt {
+  display: inline-block;
+  height: 24px;
+  padding: 0 12px;
+  font-size: 0.75em;
+  color: #fff;
+  line-height: 24px;
+  background: #2baaf2;
+  border-radius: 12px;
+}
+.text_info01.normal dt {
+  background: #35d1d3;
+}
+.text_info01.bad dt {
+  background: #f6a428;
+}
+.text_info01.verybad dt {
+  background: #fa6c40;
+}
+.text_info01 dd {
+  margin-top: 5px;
+  font-size: 0.875em;
+  color: #454545;
+  line-height: 130%;
+}
+.healthchk {
+  margin: 20px 25px;
+  padding: 16px 0;
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5;
+}
+.healthchk dl {
+  float: left;
+  width: 25%;
+  text-align: center;
+}
+.healthchk dt {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 68px;
+  height: 68px;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
+  background: url('./images/tt_healthchk01.png') no-repeat center 7px;
+  background-size: auto 30px;
+  border: 1px solid #2baaf2;
+  border-radius: 34px;
+  box-sizing: border-box;
+  -webkit0-box-sizing: border-box;
+}
+.healthchk dt > span {
+  display: block;
+  width: 100%;
+  font-size: 0.75em;
+  color: rgba(69, 69, 69, 0.6);
+  text-align: center;
+  line-height: 105%;
+}
+.healthchk dd {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 0.75em;
+  color: #2baaf2;
+}
+.healthchk dl:nth-child(2) dt {
+  background-image: url('./images/tt_healthchk02.png');
+}
+.healthchk dl:nth-child(3) dt {
+  background-image: url('./images/tt_healthchk03.png');
+}
+.healthchk dl:nth-child(4) dt {
+  background-image: url('./images/tt_healthchk04.png');
+}
+.healthchk .normal dt {
+  border-color: #35d1d3;
+}
+.healthchk .normal dd {
+  color: #35d1d3;
+}
+.healthchk .bad dt {
+  border-color: #f6a428;
+}
+.healthchk .bad dd {
+  color: #f6a428;
+}
+.healthchk .verybad dt {
+  border-color: #fa6c40;
+}
+.healthchk .verybad dd {
+  color: #fa6c40;
+}
+
+.sub_cont {
+  margin: 0 25px 20px;
+  border-top: 1px solid #e1e1e1;
+}
+.sub_cont.bodycomp {
+  border: none;
+}
+.bodycomp dl {
+  position: relative;
+  padding: 0 0 0 49px;
+}
+.bodycomp dt {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 38px;
+  height: 38px;
+  text-indent: -999em;
+  background: url('./images/ico_weight.png') no-repeat 0 center;
+  background-size: auto 40px;
+}
+.bodycomp dd {
+  position: relative;
+  height: 53px;
+  padding-right: 75px;
+}
+.bodycomp .axis {
+  height: 16px;
+  text-indent: -999em;
+  background: url('./images/axis_weight.png') no-repeat left bottom;
+  background-size: 100% auto;
+}
+.bodycomp dl:nth-of-type(2) .axis {
+  background-image: url('./images/axis_bodywater.png');
+}
+.bodycomp dl:nth-of-type(3) .axis {
+  background-image: url('./images/axis_bodyfat.png');
+}
+.bodycomp .bar {
+  width: 0;
+  height: 5px;
+  background: url('./images/bg_bargraph.png') no-repeat 0 0;
+  background-size: 100% 100%;
+  -webkit-transition: all 0.5s ease-out;
+}
+.bodycomp .value {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 62px;
+  height: 30px;
+  padding-left: 13px;
+  font-size: 1.0625em;
+  color: #454545;
+}
+.bodycomp .stat_guide {
+  margin-top: 9.5px;
+  font-size: 0.5em;
+  color: #5ec5e3;
+  overflow: hidden;
+}
+.bodycomp .stat_guide span {
+  float: left;
+  height: 19px;
+  line-height: 19px;
+  text-align: center;
+  letter-spacing: -1px;
+  border-left: 1px solid #e3e4e4;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.bodycomp .stat_guide span:first-child {
+  width: 21.68%;
+  margin-left: 3.69%;
+}
+.bodycomp .stat_guide span:nth-child(2) {
+  width: 16.8%;
+}
+.bodycomp .stat_guide span:last-child {
+  width: 57.83%;
+  border-right: 1px solid #e3e4e4;
+}
+.bodycomp dl:nth-of-type(2) dt {
+  background-image: url('./images/ico_bodyfat.png');
+}
+.bodycomp dl:nth-of-type(3) dt {
+  background-image: url('./images/ico_bodywater.png');
+}
+
+.graphWrap.pattern {
+  display: flex;
+  justify-content: space-around;
+}
+.graphWrap.pattern .chart {
+  position: relative;
+  float: left;
+  width: 32%;
+  text-align: center;
+}
+.graphWrap.pattern .chart:nth-child(2) {
+  margin: 0 2%;
+}
+.graphWrap.pattern .chart dl {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 100%;
+  padding-bottom: 1em;
+  text-align: center;
+}
+.graphWrap.pattern .chart dt {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.75em;
+  color: #7f7f8a;
+}
+.graphWrap.pattern .chart dd {
+  color: #43d8a0;
+  font-size: 1.0625em;
+}
+.graphWrap.pattern .chart dd em {
+  font-size: 1.235em;
+}
+
+.bidet_mainWrap footer {
+  position: fixed;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
+}
+.bidet_mainWrap footer button {
+  width: 100%;
+  height: 44px;
+  text-indent: -999em;
+  background: #ededed url('./images/btn_report.png') no-repeat center top;
+  background-size: auto 100%;
+}
+
+/*** Report ***/
+.total_health .eva {
+  position: relative;
+  padding: 20px;
+  text-align: right;
+}
+.total_health .subtit {
+  position: absolute;
+  left: 20px;
+  top: 19px;
+  font-size: 0.875em;
+  text-align: left;
+}
+.total_health .subtit em {
+  display: inline-block;
+  padding: 2px 0 2px 21px;
+  vertical-align: middle;
+  background: url('./images/ico_report_bidet.png') no-repeat 0 center;
+  background-size: auto 25px;
+}
+.total_health .subtit span {
+  font-size: 0.9em;
+  color: #787878;
+  vertical-align: middle;
+}
+.total_health .period {
+  margin-bottom: 20px;
+  font-size: 0.75em;
+  color: #b1b1b1;
+  line-height: 20px;
+}
+.health_num {
+  font-size: 6em;
+  color: #202020;
+  line-height: 105%;
+}
+.health_txt {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 1.0625em;
+  color: #3fbcec;
+}
+.total_health .graphWrap {
+  margin: 40px 0 20px;
+}
+.high_low {
+  margin: 20px 22px;
+  padding: 27px 0 0;
+  border-top: 1px solid #ccc;
+  overflow: hidden;
+}
+.high_low > div {
+  float: left;
+  width: 50%;
+  text-align: center;
+}
+.high_low dl,
+.high_low dt,
+.high_low dd {
+  display: inline-block;
+}
+.high_low .value {
+  display: block;
+  width: 110px;
+  height: 110px;
+  margin: 0 auto 10px;
+  text-align: center;
+  border: 3px solid #78d7dd;
+  border-radius: 55px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  overflow: hidden;
+}
+.high_low .value dt {
+  display: block;
+  height: 26px;
+  margin: 0 2px;
+  padding: 12px 5px 0;
+  font-size: 0.75em;
+  color: #7f7f8a;
+  line-height: 105%;
+  border-bottom: 2px solid #78d7dd;
+}
+.high_low .value dd {
+  display: block;
+  margin-top: 5px;
+  font-size: 2.18em;
+  color: #2baaf2;
+  line-height: 110%;
+}
+.high_low .low .value dd {
+  color: #fa7a53;
+}
+.high_low .value ~ dl dt {
+  width: 15px;
+  height: 15px;
+  text-indent: -999em;
+  vertical-align: middle;
+  background: url('./images/ico_feces.png') no-repeat left center;
+  background-size: auto 25px;
+}
+.high_low .value ~ dl dd {
+  height: 15px;
+  margin-left: -4px;
+  font-weight: bold;
+  font-size: 0.75em;
+  line-height: 15px;
+  vertical-align: middle;
+}
+.high_low dl:last-child dt {
+  margin-left: 5px;
+  background-image: url('./images/ico_urine.png');
+}
+.bowelWrap {
+  padding: 0 0 15px;
+}
+.bowelWrap .c_btn {
+  margin-bottom: 0;
+}
+.health_type {
+  padding: 43px 21px 0;
+  text-align: center;
+  border-top: 1px solid #ddd;
+}
+.health_type .tit {
+  margin: 0 auto;
+  font-size: 0.75em;
+  color: #5a5a5a;
+}
+.health_type .tit span {
+  display: inline-block;
+  height: 25px;
+  line-height: 25px;
+}
+.health_type .tit button {
+  width: 30px;
+  height: 25px;
+  text-indent: -999em;
+  vertical-align: top;
+  background: url('./images/ico_question.png') no-repeat center center;
+  background-size: auto 25px;
+}
+.mytype {
+  margin-top: 2px;
+  font-size: 1.25em;
+  color: #5a5a5a;
+}
+.healthtype_graph {
+  position: relative;
+  margin: 20px 0 10px;
+}
+.healthtype_graph span {
+  display: block;
+  width: 135px;
+  height: 135px;
+  margin: 0 auto;
+  text-indent: -999em;
+  background: url('./images/typegraph01.png') no-repeat center top;
+  background-size: auto 100%;
+  border: 2px solid #11b9c3;
+  border-radius: 68px;
+}
+.healthtype_graph span.type02 {
+  background-image: url('./images/typegraph02.png');
+}
+.healthtype_graph span.type03 {
+  background-image: url('./images/typegraph03.png');
+}
+.healthtype_graph span.type04 {
+  background-image: url('./images/typegraph04.png');
+}
+.healthtype_graph span.type05 {
+  background-image: url('./images/typegraph05.png');
+}
+.health_type .detail {
+  padding: 20px 0;
+}
+.health_type .detail span {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  margin: 0 5px;
+  padding-top: 30px;
+  font-size: 0.75em;
+  color: #d5d5d5;
+  line-height: 105%;
+  vertical-align: top;
+  background: url('./images/ico_healthtype01_off.png') no-repeat center 8px;
+  background-size: 25px auto;
+  border: 3px solid #d5d5d5;
+  border-radius: 35px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.health_type .detail span:nth-child(2) {
+  background-image: url('./images/ico_healthtype02_off.png');
+}
+.health_type .detail span:nth-child(3) {
+  background-image: url('./images/ico_healthtype03_off.png');
+}
+.health_type .detail span.on {
+  color: #454545;
+  background-image: url('./images/ico_healthtype01_on.png');
+  border-color: #56cdd4;
+}
+.health_type .detail span.on:nth-child(2) {
+  background-image: url('./images/ico_healthtype02_on.png');
+}
+.health_type .detail span.on:nth-child(3) {
+  background-image: url('./images/ico_healthtype03_on.png');
+}
+.health_type .txt {
+  padding: 0 10px 25px;
+  font-size: 0.8125em;
+  color: #454545;
+}
+.health_type .graphWrap {
+  padding: 25px 0 35px;
+  border-top: 1px solid #ccc;
+}
+.list01.health_type_list li {
+  position: relative;
+  height: auto;
+  min-height: 80px;
+  padding: 10px 10px 10px 100px;
+}
+.list01.health_type_list li:before {
+  content: '';
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  width: 65px;
+  height: 65px;
+  margin-top: -32.5px;
+  border: 2px solid #11b9c3;
+  border-radius: 33px;
+}
+.list01.health_type_list li {
+  background: #fff url('./images/typegraph01.png') no-repeat 20px center;
+  background-size: 65px auto;
+}
+.list01.health_type_list .tit {
+  margin-bottom: 10px;
+  font-size: 1.0625em;
+  color: #323232;
+}
+.list01.health_type_list p {
+  font-size: 0.75em;
+  color: #454545;
+}
+.list01.health_type_list li.type02 {
+  background-image: url('./images/typegraph02.png');
+}
+.list01.health_type_list li.type03 {
+  background-image: url('./images/typegraph03.png');
+}
+.list01.health_type_list li.type04 {
+  background-image: url('./images/typegraph04.png');
+}
+.list01.health_type_list li.type05 {
+  background-image: url('./images/typegraph05.png');
+}
+
+/*** control ***/
+
+/*** smart control ***/
+.sm_control {
+  padding-top: 76px;
+}
+
+.control_btn {
+  padding: 30px 15% 0;
+  overflow: hidden;
+}
+.control_btn li {
+  float: left;
+  width: 50%;
+  height: 115px;
+  text-align: center;
+}
+.control_btn button {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  padding-top: 32px;
+  font-size: 0.8125em;
+  color: #3c413c;
+  line-height: 110%;
+  background-repeat: no-repeat;
+  background-position: center 15px;
+  background-size: 30px auto;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid #d7d7d7;
+  border-radius: 50px;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+.control_btn button:before {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 90px;
+  height: 90px;
+  border: 2px solid #35d1d3;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-radius: 45px;
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  -webkit-transition: all 0.5s ease-out;
+}
+.btn_temp {
+  background-image: url('./images/btn_temp_off.png');
+}
+.btn_water01 {
+  background-image: url('./images/btn_water01_off.png');
+}
+.btn_water02 {
+  background-image: url('./images/btn_water02_off.png');
+}
+.btn_dry {
+  background-image: url('./images/btn_dry_off.png');
+}
+.control_btn .on button {
+  color: #069ef4;
+  background-color: rgba(255, 255, 255, 1);
+  border-color: rgba(0, 0, 0, 0);
+  box-shadow: 0 4.5px 5.5px rgba(0, 0, 0, 0.12);
+  transition: all 0.5s ease-in;
+  -webkit-transition: all 0.5s ease-in;
+}
+.control_btn .on button:before {
+  opacity: 1;
+  transition: all 1.5s ease-in;
+  -webkit-transition: all 1.5s ease-in;
+}
+.on .btn_temp {
+  background-image: url('./images/btn_temp_on.png');
+}
+.on .btn_water01 {
+  background-image: url('./images/btn_water01_on.png');
+}
+.on .btn_water02 {
+  background-image: url('./images/btn_water02_on.png');
+}
+.on .btn_dry {
+  background-image: url('./images/btn_dry_on.png');
+}
+
+.control_bar {
+  margin-top: 6px;
+  background: url('./images/bg_bar01.png') no-repeat center top;
+  background-size: 25px auto;
+}
+.controlWrap {
+  height: 160px;
+  padding-top: 45px;
+}
+.controlWrap .graphWrap {
+  position: relative;
+  width: 280px;
+  min-height: 100px;
+  margin: 0 auto;
+}
+.chart_txt {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.chart_txt button {
+  position: absolute;
+  padding: 8px 15px;
+  font-size: 0.75em;
+  color: #adafae;
+  z-index: 4;
+}
+.chart_txt button.on {
+  font-weight: bold;
+  color: #3fbcec;
+}
+.chart_txt button:nth-child(1) {
+  left: 12%;
+  bottom: -34%;
+}
+.chart_txt button:nth-child(2) {
+  left: 26%;
+  top: 26%;
+}
+.chart_txt button:nth-child(3) {
+  right: 20%;
+  top: 26%;
+}
+.chart_txt button:nth-child(4) {
+  right: 7%;
+  bottom: -34%;
+}
+.chart_txt.item5 button:nth-child(1) {
+  left: 13%;
+  bottom: -36%;
+}
+.chart_txt.item5 button:nth-child(2) {
+  left: 22%;
+  top: 40%;
+}
+.chart_txt.item5 button:nth-child(3) {
+  right: 42%;
+  top: 15%;
+}
+.chart_txt.item5 button:nth-child(4) {
+  right: 18%;
+  bottom: 34%;
+}
+.chart_txt.item5 button:nth-child(5) {
+  right: 9%;
+  bottom: -36%;
+}
+
+/*** etc ***/
+.txtbox01 {
+  display: inline-block;
+  height: 18px;
+  padding: 2px 10px 0;
+  font-size: 0.75em;
+  color: #fff;
+  line-height: 18px;
+  vertical-align: middle;
+  background: #03b8d9;
+  border-radius: 10px;
+}
+
+/*** popup ***/
+.popWrap {
+  position: relative;
+  min-height: 100%;
+  padding-top: 48px;
+  background: #ededed;
+}
+.popWrap header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  padding-left: 40px;
+  color: #fff;
+  background: #14a7df;
+  z-index: 100;
+}
+.popWrap h1 {
+  height: 100%;
+  font-size: 1.0625em;
+  line-height: 48px;
+}
+.popWrap header .btn_back {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 40px;
+  height: 100%;
+  text-indent: -999em;
+  background: url('./images/btn_back.png') no-repeat center center;
+  background-size: auto 25px;
+}
+.popWrap .contentsWrap {
+  padding: 20px;
+}
+
+.countWrap > span {
+  position: relative;
+  display: block;
+  width: 26px;
+  height: 22px;
+  margin-bottom: 5px;
+  background: url('./images/ico_cal_feces.png') no-repeat center center;
+  background-size: 26px auto;
+}
+.countWrap .count {
+  position: absolute;
+  left: 50%;
+  bottom: 1px;
+  width: 12px;
+  height: 12px;
+  margin-left: 7px;
+  font-weight: bold;
+  font-size: 0.46875em;
+  color: #f5b52a;
+  text-align: center;
+  line-height: 14px;
+  background: #fff;
+  border: 1px solid #f5b52a;
+  border-radius: 6px;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+.countWrap .urine {
+  height: 24px;
+  background-image: url('./images/ico_cal_urine.png');
+}
+.countWrap .urine .count {
+  margin-left: 4px;
+  color: #3b84f2;
+  border-color: #3b84f2;
+}
+
+.tit01 {
+  margin: 20px 0 25px;
+  color: #202020;
+}

@@ -15,7 +15,7 @@ const Detail = ({ history }) => {
   }
 
   return (
-    <div className="popWrap">
+    <div className="combine_popWrap">
       <header>
         <button type="button" className="btn_close" onClick={history.goBack}>
           닫기
