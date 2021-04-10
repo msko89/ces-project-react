@@ -4,7 +4,7 @@ import { Chart } from 'react-charts';
 import Moment from 'react-moment';
 import './Bidet.css';
 
-export default function Bidet() {
+export default function Bidet({ history }) {
   const healthInfo = [
     {
       class: 'verybad',
@@ -348,7 +348,9 @@ export default function Bidet() {
       </section>
 
       <footer>
-        <button type="button">REPORT</button>
+        <button type="button" onClick={() => history.goBack()}>
+          REPORT
+        </button>
       </footer>
     </div>
   );
