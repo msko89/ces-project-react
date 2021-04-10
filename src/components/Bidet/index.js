@@ -1,37 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { PieChart } from 'react-minimal-pie-chart';
+import { Chart } from 'react-charts';
 import Moment from 'react-moment';
 import './Bidet.css';
 
 export default function Bidet() {
-  const colors = ['#fa6c40', '#f6a428', '#35d1d3', '#2baaf2'];
-  const pieChartDefaultOptions = {
-    background: '#f4f4f4',
-    startAngle: 270,
-    totalValue: 100,
-    lineWidth: 10,
-    labelPosition: 0,
-    rounded: 'rounded',
-    animate: 'animate',
-    labelStyle: {
-      fontSize: '2.5em',
-      fontFamily: 'sans-serif',
-      fill: '#202020',
-    },
-  };
-
-  const [tipStatus, setTipStatus] = useState(false);
-
-  const min = 1;
-  const max = 100;
-  const randomNumber = Math.floor(Math.random() * (max - min)) + min;
-
-  const [numbers, setNumbers] = useState([]);
-
-  if (numbers.length < 4) {
-    setNumbers([...numbers, randomNumber]);
-  }
-
   const healthInfo = [
     {
       class: 'verybad',
@@ -59,14 +32,119 @@ export default function Bidet() {
     },
   ];
 
-  const minTime = 1;
-  const maxTime = 10;
-  const randomTime = Math.floor(Math.random() * (maxTime - minTime)) + minTime;
+  const colors = ['#fa6c40', '#f6a428', '#35d1d3', '#2baaf2'];
+  const pieChartDefaultOptions = {
+    background: '#f4f4f4',
+    startAngle: 270,
+    totalValue: 100,
+    lineWidth: 10,
+    labelPosition: 0,
+    rounded: 'rounded',
+    animate: 'animate',
+    labelStyle: {
+      fontSize: '2.5em',
+      fontFamily: 'sans-serif',
+      fill: '#202020',
+    },
+  };
 
-  const [patterns, setPatterns] = useState([]);
+  const [tipStatus, setTipStatus] = useState(false);
 
-  if (patterns.length < 3) {
-    setPatterns([...patterns, randomTime]);
+  const min = 1;
+  const max = 100;
+  const randomNumber = Math.floor(Math.random() * (max - min)) + min;
+
+  //상단 건강 그래프 Number
+  const [number, setNumber] = useState(0);
+  if (!number) setNumber(randomNumber);
+
+  //Scroll Hook
+  const useScroll = () => {
+    const [scroll, setScroll] = useState({ x: 0, y: 0 });
+
+    const onScroll = () => {
+      setScroll({ x: window.scrollX, y: window.scrollY });
+    };
+
+    useEffect(() => {
+      window.addEventListener('scroll', onScroll);
+      return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    return scroll;
+  };
+
+  const { y } = useScroll();
+  const [bars, setBars] = useState([]); //Body Composition
+  const [patterns, setPatterns] = useState([]); //Bidet Usage Pattern
+  const [charts, setCharts] = useState([
+    [0, 0],
+    [3, 0],
+    [6, 0],
+    [9, 0],
+    [12, 0],
+    [15, 0],
+    [18, 0],
+    [21, 0],
+    [24, 0],
+  ]); //Bidet Working Hours
+
+  const [updateFlag, setUpdateFlag] = useState(false);
+
+  const chartData = useMemo(
+    () => [
+      {
+        data: charts,
+      },
+    ],
+    [charts]
+  );
+
+  const series = React.useMemo(
+    () => ({
+      type: 'bar',
+    }),
+    []
+  );
+  const axes = useMemo(
+    () => [
+      { primary: true, type: 'ordinal', position: 'bottom' },
+      { position: 'left', type: 'linear', stacked: false },
+    ],
+    []
+  );
+
+  if (y > 100 && y < 300) {
+    const randomBar = Math.floor(Math.random() * (max - min)) + min;
+
+    if (bars.length < 3) {
+      setBars([...bars, randomBar]);
+    }
+  } else if (y > 300 && y < 500) {
+    const minTime = 1;
+    const maxTime = 10;
+    const randomTime =
+      Math.floor(Math.random() * (maxTime - minTime)) + minTime;
+
+    if (patterns.length < 3) {
+      setPatterns([...patterns, randomTime]);
+    }
+  } else if (y > 600) {
+    if (!updateFlag) {
+      setUpdateFlag(true);
+
+      setCharts([
+        [0, 0],
+        [3, 1],
+        [6, 2],
+        [9, 9],
+        [12, 6],
+        [15, 5],
+        [18, 7],
+        [21, 6],
+        [24, 3],
+      ]);
+    }
   }
 
   return (
@@ -107,8 +185,8 @@ export default function Bidet() {
               {...pieChartDefaultOptions}
               data={[
                 {
-                  value: numbers[0],
-                  color: colors[Math.floor(numbers[0] / 25)],
+                  value: number,
+                  color: colors[Math.floor(number / 25)],
                 },
               ]}
               label={({ dataEntry }) => dataEntry.value}
@@ -117,18 +195,14 @@ export default function Bidet() {
 
           <dl
             className={`text_info01 ${
-              numbers[0] ? healthInfo[Math.floor(numbers[0] / 25)].class : ''
+              number ? healthInfo[Math.floor(number / 25)].class : ''
             }`}
           >
             <dt>
               Health Index :
-              {numbers[0] ? healthInfo[Math.floor(numbers[0] / 25)].text : ''}
+              {number ? healthInfo[Math.floor(number / 25)].text : ''}
             </dt>
-            <dd>
-              {numbers[0]
-                ? healthInfo[Math.floor(numbers[0] / 25)].summary
-                : ''}
-            </dd>
+            <dd>{number ? healthInfo[Math.floor(number / 25)].summary : ''}</dd>
           </dl>
 
           <div className="healthchk">
@@ -180,9 +254,9 @@ export default function Bidet() {
               <div
                 id="bodyWeight"
                 className="bar"
-                style={{ width: `${numbers[1]}%` }}
+                style={{ width: `${bars[0]}%` }}
               >
-                <span className="value">{numbers[1]} lb</span>
+                <span className="value">{bars[0]} lb</span>
               </div>
               <p className="stat_guide">
                 <span>Below Standard</span>
@@ -198,9 +272,9 @@ export default function Bidet() {
               <div
                 id="bodyWater"
                 className="bar"
-                style={{ width: `${numbers[2]}%` }}
+                style={{ width: `${bars[1]}%` }}
               >
-                <span className="value">{numbers[2]} L</span>
+                <span className="value">{bars[1]} L</span>
               </div>
               <p className="stat_guide">
                 <span>Below Standard</span>
@@ -216,9 +290,9 @@ export default function Bidet() {
               <div
                 id="bodyFat"
                 className="bar"
-                style={{ width: `${numbers[3]}%` }}
+                style={{ width: `${bars[2]}%` }}
               >
-                <span className="value">{numbers[3]} b</span>
+                <span className="value">{bars[2]} b</span>
               </div>
               <p className="stat_guide">
                 <span>Below Standard</span>
@@ -259,7 +333,7 @@ export default function Bidet() {
 
         <article className="sub_cont">
           <h2 className="tit01">Bidet Working Hours(Per)</h2>
-          <div>
+          <div className="description">
             <div>
               Average daily usage time <b>5 minutes</b>
             </div>
@@ -267,14 +341,14 @@ export default function Bidet() {
               Longest usage time <b>10 minutes 3 seconds</b>
             </div>
           </div>
-          <div id="chart" className="graphWrap"></div>
+          <div className="grapWrap">
+            <Chart data={chartData} series={series} axes={axes} />
+          </div>
         </article>
       </section>
 
       <footer>
-        <button type="button" id="report">
-          REPORT
-        </button>
+        <button type="button">REPORT</button>
       </footer>
     </div>
   );
