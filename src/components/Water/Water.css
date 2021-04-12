@@ -581,6 +581,7 @@
   height: 0;
   background: url('./images/bottle01_on.png') no-repeat center bottom;
   background-size: 100% auto;
+  transition: all 0.5s ease-out;
 }
 .water_usage .detail .liter {
   margin-top: 3px;
